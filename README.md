@@ -3,13 +3,16 @@ author:   André Dietrich
 
 email:    andre.dietrich@ovgu.de
 
-version:  0.0.1
+version:  0.0.2
 
 language: en
 
 narrator: US English Female
 
-comment:  Demo of using A-Frame in LiaScript.
+logo:     demo.gif
+
+comment:  Demo of using A-Frame in LiaScript for creating simple 3D scenes and
+          add augmented reality movies and images.
 
 script:   https://aframe.io/releases/0.9.0/aframe.min.js
           https://unpkg.com/aframe-text-geometry-component@0.5.1/dist/aframe-text-geometry-component.min.js
