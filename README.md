@@ -81,7 +81,7 @@ to load 3D scenes, models or videos into [LiaScript](https://LiaScript.github.io
 
 __Try it on LiaScript:__
 
-https://liascript.github.io/course/?https://raw.githubusercontent.com/liaTemplates/aframe/master/README.md
+https://liascript.github.io/course/?https://raw.githubusercontent.com/LiaTemplates/aframe/0.0.5/README.md
 
 __See the project on Github:__
 
@@ -97,7 +97,7 @@ of course, you could also clone this project and change it, as you wish.
      {{1}}
 1. Load the macros via
 
-   `import: https://raw.githubusercontent.com/liaTemplates/aframe/master/README.md`
+   `import: https://raw.githubusercontent.com/LiaTemplates/aframe/0.0.5/README.md`
 
 2. Copy the definitions into your Project
 
