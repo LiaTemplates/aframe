@@ -77,24 +77,25 @@ comment:  Template for using A-Frame in LiaScript for creating simple 3D scenes
 
                          --{{0}}--
 This library implements some macros for [AFrame](https://aframe.io), which allow
-to load 3D scenes, models or videos into [LiaScript](https://LiaScript.github.io)
+loading 3D scenes, models or videos into
+[LiaScript](https://LiaScript.github.io).
 
 __Try it on LiaScript:__
 
 https://liascript.github.io/course/?https://raw.githubusercontent.com/LiaTemplates/aframe/0.0.5/README.md
 
-__See the project on Github:__
+__See the project on GitHub:__
 
 https://github.com/liaTemplates/aframe
 
                          --{{1}}--
 There are three ways to use this template. The easiest way is to use the
 `import` statement and the URL of the raw text-file of this course or any other
-branch or version. But you can also copy the required functionionality directly
+branch or version. But you can also copy the required functionality directly
 into the header of your Markdown document, see therefor the Implementation. And
 of course, you could also clone this project and change it, as you wish.
 
-     {{1}}
+                           {{1}}
 1. Load the macros via
 
    `import: https://raw.githubusercontent.com/LiaTemplates/aframe/0.0.5/README.md`
@@ -105,12 +106,18 @@ of course, you could also clone this project and change it, as you wish.
 
 ## Macros
 
+                         --{{0}}--
+This chapter describes a couple of macros, which can be used to embed 3D-scenes,
+load models, etc.
+
+<div style="width:100%;height:0;padding-bottom:54%;position:relative;"><iframe src="https://giphy.com/embed/5q0w2TRn89GdS9Oso7" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/5q0w2TRn89GdS9Oso7">via GIPHY</a></p>
+
 ### `@AFRAME.scene`
 
-    --{{0}}--
-The most basic macro is `@AFRAME.scene`. Add this to thead of your Markdown
+                         --{{0}}--
+The most basic macro is `@AFRAME.scene`. Add this to the head of your Markdown
 code-block in order to indicate to LiaScript, that this code-snippet should be
-interpreted as an entire scene and rendered approrpiately.
+interpreted as an entire scene and rendered appropriately.
 
 ```` markdown
 ```html @AFRAME.scene
@@ -138,10 +145,10 @@ interpreted as an entire scene and rendered approrpiately.
 
 ### `@AFRAME.sceneWithStyle`
 
-    --{{0}}--
+                         --{{0}}--
 However, the previous example used the default styling method, which is defined
 by the macro `@AFRAME.style`. By using this macro, it is possible to overwrite
-these settings, change the widht and height properties or to add a border. Note,
+these settings, change the width and height properties or to add a border. Note,
 the backticks around the style-definition are optional, as long as there is no
 comma within your definition, this will work. But if you have commas within
 your parameters, LiaScript will separate them by commas, to prevent this use
@@ -169,8 +176,8 @@ backticks.
 
 ### `@AFRAME.model`
 
-     --{{0}}--
-Somethimes it might be convenient to load only a model, for this purpose you can
+                         --{{0}}--
+Sometimes it might be convenient to load only a model, for this purpose you can
 make use of a reference-macro. All the last two macro-calls are identical and
 would work perfectly for absolute URLs. However, if you use the first type,
 which looks like a Markdown-reference, your resource will still be treated as a
@@ -200,14 +207,15 @@ model/Stein_texture.glb
 
 ### `@AFRAME.modelWithStyle`
 
-     --{{0}}--
-Similar the the scene macros, you can also provide your own styling withi this
+                         --{{0}}--
+Similar to the scene macros, you can also provide your own styling within this
 macro. The first parameter passed within brackets, is again the new styling
-definition, whereby the URL of the model is passed as the seconde one. LiaScript
-again, will handle the approrpiate URL translation of relative paths.
+definition, whereby the URL of the model is passed as the second one. LiaScript
+again, will handle the appropriate URL translation of relative paths.
 
 ```
 @[AFRAME.modelWithStyle(`width: 50%`)](model/Stein_texture.glb "a model of a stone")
+
 ```
 
 **Result:**
@@ -217,10 +225,12 @@ again, will handle the approrpiate URL translation of relative paths.
 
 ### `@AFRAME.image`
 
+                         --{{0}}--
 This macro will load an image as a 360 degree image and display it.
 
 ``` markdown
 @[AFRAME.image](model/puydesancy.jpg "360 Degree image of Puy de Sancy, France")
+
 ```
 
 **Result:**
@@ -229,7 +239,7 @@ This macro will load an image as a 360 degree image and display it.
 
 ### `@AFRAME.imageWithStyle`
 
-    --{{0}}--
+                         --{{0}}--
 Similar to all previous elements, load a 360 Degree image with custom styling.
 
 ``` markdown
@@ -245,11 +255,11 @@ Similar to all previous elements, load a 360 Degree image with custom styling.
 @AFRAME.style: width:100%; height:60vh; border: 3px dashed red;
 -->
 
-    --{{0}}--
+                         --{{0}}--
 The basic `@AFRAME.style` macro defines the default styling properties, which
 are used as long as you do not use a `macroWithStyle`. You can still overwrite
 this macro and define your own default style, such that it is not required to
-come up with the custom styling again, again, and agian.
+come up with the custom styling again, again, and again.
 
 ```` markdown
 <!--
@@ -268,12 +278,12 @@ import: https://raw.githubusercontent.com/liaTemplates/aframe/master/README.md
 -->
 ````
 
-    --{{1}}--
+                         --{{1}}--
 This can be done either globally, within the main definitions or per slide,
 simply by adding an HTML macro directly to the title of the section.
 
 
-    {{1}}
+                           {{1}}
 @[AFRAME.model](model/Stein_texture.glb "simply a model of a stone")
 
 ### Define your own
@@ -289,15 +299,14 @@ simply by adding an HTML macro directly to the title of the section.
 @end
 -->
 
-    --{{0}}--
+                         --{{0}}--
 Of course, it is also possible to define other custom macros, which are based on
 the macro set, that you have loaded. The example below shows, how a new macro
 `@custom_sphere` is defined. Everything within the body, which ranges from
-`@custom_sphere` to `@end` will be injected, whereever it appears within the
+`@custom_sphere` to `@end` will be injected, wherever it appears within the
 document. The only thing that is parameterized here, is the radius of the
 sphere. The position of the internal parameters is marked via `@0` to `@9`.
-These markers will be replaced by the the user defined parameters, before
-injection.
+These markers will be replaced by the user defined parameters, before injection.
 
 
 ```` markdown
@@ -314,13 +323,8 @@ injection.
 @end
 -->
 
-You can also have a look at the next slide, to see how the other macros were
-defined.
-
 @custom_sphere(1.5)
-
 ---
-
 @custom_sphere(3.141592)
 ````
 
@@ -331,10 +335,16 @@ defined.
 @custom_sphere(3.141592)
 
 
+                         --{{1}}--
+You can also have a look at the next slide, to see how the other macros were
+defined.
+
+
 ## Implementation
 
-All defined macros are basically exentsion the the most general
-`@AFRAME.sceneWithStyle`. This macro only loads an `ìframe` and adds some user
+                         --{{0}}--
+All defined macros are basically extensions of the most general
+`@AFRAME.sceneWithStyle`. This macro only loads an `iframe` and adds some user
 defined code to the body.
 
 ```` html
