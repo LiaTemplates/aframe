@@ -3,7 +3,7 @@ author:   André Dietrich
 
 email:    LiaScript@web.de
 
-version:  0.0.5
+version:  0.0.6
 
 language: en
 
@@ -19,7 +19,7 @@ comment:  Template for using A-Frame in LiaScript for creating simple 3D scenes
 
 @AFRAME.model
 ``` html @AFRAME.scene
-<a-scene>
+<a-scene renderer="colorManagement: true;">
   <a-assets>
     <a-asset-item id="glbtestmodel" src="@0"></a-asset-item>
   </a-assets>
@@ -30,7 +30,7 @@ comment:  Template for using A-Frame in LiaScript for creating simple 3D scenes
 
 @AFRAME.modelWithStyle
 ``` html @AFRAME.sceneWithStyle(@0)
-<a-scene>
+<a-scene renderer="colorManagement: true;">
   <a-assets>
     <a-asset-item id="glbtestmodel" src="@1"></a-asset-item>
   </a-assets>
@@ -39,7 +39,7 @@ comment:  Template for using A-Frame in LiaScript for creating simple 3D scenes
 ```
 @end
 
-@AFRAME.image
+@AFRAME.image360
 ``` html @AFRAME.scene
 <a-scene>
   <a-sky src="@0" rotation="0 -130 0"></a-sky>
@@ -47,9 +47,9 @@ comment:  Template for using A-Frame in LiaScript for creating simple 3D scenes
 ```
 @end
 
-@AFRAME.imageWithStyle
+@AFRAME.image360WithStyle
 ``` html @AFRAME.sceneWithStyle(@0)
-<a-scene>
+<a-scene renderer="colorManagement: true;">
   <a-sky src="@1" rotation="0 -130 0"></a-sky>
 </a-scene>
 ```
@@ -64,6 +64,7 @@ comment:  Template for using A-Frame in LiaScript for creating simple 3D scenes
   <head>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-extras@3.3.0/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe-orbit-controls@1.3.0/dist/aframe-orbit-controls.min.js"></script>
   </head>
   <body>
   @1
@@ -82,7 +83,7 @@ loading 3D scenes, models or videos into
 
 __Try it on LiaScript:__
 
-https://liascript.github.io/course/?https://raw.githubusercontent.com/LiaTemplates/aframe/0.0.5/README.md
+https://liascript.github.io/course/?https://raw.githubusercontent.com/LiaTemplates/aframe/0.0.6/README.md
 
 __See the project on GitHub:__
 
@@ -98,7 +99,7 @@ of course, you could also clone this project and change it, as you wish.
                            {{1}}
 1. Load the macros via
 
-   `import: https://raw.githubusercontent.com/LiaTemplates/aframe/0.0.5/README.md`
+   `import: https://raw.githubusercontent.com/LiaTemplates/aframe/0.0.6/README.md`
 
 2. Copy the definitions into your Project
 
@@ -187,22 +188,22 @@ relative URLs. The title optional and a way for you, to provide some information
 about the content of, but LiaScript will ignore this at the moment.
 
 ```` markdown
-@[AFRAME.model](model/Stein_texture.glb "simply a model of a stone")
+@[AFRAME.model](model/Stein_scan.glb "simply a model of a stone")
 
 similar to
 
-@AFRAME.model(model/Stein_texture.glb)
+@AFRAME.model(model/Stein_scan.glb)
 
 or
 
 ``` html @AFRAME.model
-model/Stein_texture.glb
+model/Stein_scan.glb
 ```
 ````
 
 **Result:**
 
-@[AFRAME.model](model/Stein_texture.glb "simply a model of a stone")
+@[AFRAME.model](model/Stein_scan.glb "simply a model of a stone")
 
 
 ### `@AFRAME.modelWithStyle`
@@ -214,41 +215,41 @@ definition, whereby the URL of the model is passed as the second one. LiaScript
 again, will handle the appropriate URL translation of relative paths.
 
 ```
-@[AFRAME.modelWithStyle(`width: 50%`)](model/Stein_texture.glb "a model of a stone")
+@[AFRAME.modelWithStyle(`width: 50%`)](model/Stein_scan.glb "a model of a stone")
 
 ```
 
 **Result:**
 
-@[AFRAME.modelWithStyle(`width: 50%`)](model/Stein_texture.glb "a model of a stone")
+@[AFRAME.modelWithStyle(`width: 50%`)](model/Stein_scan.glb "a model of a stone")
 
 
-### `@AFRAME.image`
+### `@AFRAME.image360`
 
                          --{{0}}--
 This macro will load an image as a 360 degree image and display it.
 
 ``` markdown
-@[AFRAME.image](model/puydesancy.jpg "360 Degree image of Puy de Sancy, France")
+@[AFRAME.image360](model/puydesancy.jpg "360 Degree image of Puy de Sancy, France")
 
 ```
 
 **Result:**
 
-@[AFRAME.image](model/puydesancy.jpg "360 Degree image of Puy de Sancy, France")
+@[AFRAME.image360](model/puydesancy.jpg "360 Degree image of Puy de Sancy, France")
 
-### `@AFRAME.imageWithStyle`
+### `@AFRAME.image360WithStyle`
 
                          --{{0}}--
 Similar to all previous elements, load a 360 Degree image with custom styling.
 
 ``` markdown
-@[AFRAME.imageWithStyle(width: 350px; height: 350px)](model/puydesancy.jpg)
+@[AFRAME.image360WithStyle(width: 350px; height: 350px)](model/puydesancy.jpg)
 ```
 
 **Result:**
 
-@[AFRAME.imageWithStyle(width: 350px; height: 350px)](model/puydesancy.jpg)
+@[AFRAME.image360WithStyle(width: 350px; height: 350px)](model/puydesancy.jpg)
 
 ### `@AFRAME.style`
 <!--
@@ -284,7 +285,7 @@ simply by adding an HTML macro directly to the title of the section.
 
 
                            {{1}}
-@[AFRAME.model](model/Stein_texture.glb "simply a model of a stone")
+@[AFRAME.model](model/Stein_scan.glb "simply a model of a stone")
 
 ### Define your own
 <!--
@@ -352,7 +353,7 @@ defined code to the body.
 
 @AFRAME.model
 ``` html @AFRAME.scene
-<a-scene>
+<a-scene renderer="colorManagement: true;">
   <a-assets>
     <a-asset-item id="glbtestmodel" src="@0"></a-asset-item>
   </a-assets>
@@ -363,7 +364,7 @@ defined code to the body.
 
 @AFRAME.modelWithStyle
 ``` html @AFRAME.sceneWithStyle(@0)
-<a-scene>
+<a-scene renderer="colorManagement: true;">
   <a-assets>
     <a-asset-item id="glbtestmodel" src="@1"></a-asset-item>
   </a-assets>
@@ -372,7 +373,7 @@ defined code to the body.
 ```
 @end
 
-@AFRAME.image
+@AFRAME.image360
 ``` html @AFRAME.scene
 <a-scene>
   <a-sky src="@0" rotation="0 -130 0"></a-sky>
@@ -380,14 +381,13 @@ defined code to the body.
 ```
 @end
 
-@AFRAME.imageWithStyle
+@AFRAME.image360WithStyle
 ``` html @AFRAME.sceneWithStyle(@0)
-<a-scene>
+<a-scene renderer="colorManagement: true;">
   <a-sky src="@1" rotation="0 -130 0"></a-sky>
 </a-scene>
 ```
 @end
-
 
 @AFRAME.scene: @AFRAME.sceneWithStyle(@AFRAME.style,```@0```)
 
@@ -398,6 +398,7 @@ defined code to the body.
   <head>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-extras@3.3.0/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe-orbit-controls@1.3.0/dist/aframe-orbit-controls.min.js"></script>
   </head>
   <body>
   @1
